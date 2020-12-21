@@ -13,7 +13,7 @@ namespace ReadData
                 var cursos = db.Curso.AsNoTracking();
                 foreach (var curso in cursos)
                 {
-                    Console.WriteLine(curso.Titulo);
+                    Console.WriteLine(curso.Titulo + ": " + curso.Descripcion);
                 }
             }
 

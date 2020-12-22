@@ -10,10 +10,10 @@ namespace ReadData
             
             using(var db = new AppVentaCursosContext())
             {
-                var cursos = db.Curso.AsNoTracking();
+                var cursos = db.Curso.Include( p => p.Precio).AsNoTracking();
                 foreach (var curso in cursos)
                 {
-                    Console.WriteLine(curso.Titulo + ": " + curso.Descripcion);
+                    Console.WriteLine($"{curso.Titulo}: {curso.Descripcion}, con precio de: {curso.Precio.PrecioActual}");
                 }
             }
 
